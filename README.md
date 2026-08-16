@@ -33,28 +33,19 @@ registered in your profile's `cordis.patch.yml` — no dynamic-plugin re-creatio
 
 ### 1. Add the package to your profile
 
-**Option A — GitHub Release (recommended for end users):**
+**Option A — npm (recommended):**
+
+```bash
+cd $DSH_HOME/profiles/web
+npm install dsh-skills-manage        # or: pnpm add dsh-skills-manage
+```
+
+**Option B — GitHub Release:**
 
 1. Download the latest source zip/tarball from the
    [Releases page](https://github.com/zhouran-hhh/dsh-skills-manage/releases) (or `git clone` / `git checkout v0.2.0`).
 2. Unzip it and place the folder as `$DSH_HOME/profiles/web/vendor/dsh-skills-manage/`.
 3. In `$DSH_HOME/profiles/web/package.json` add:
-
-```json
-{
-  "dependencies": {
-    "dsh-skills-manage": "file:./vendor/dsh-skills-manage"
-  }
-}
-```
-
-**Option B — npm / direct install:**
-
-```bash
-npm install /path/to/dsh-skills-manage   # or: pnpm add dsh-skills-manage
-```
-
-or reference the local vendor copy in `package.json`:
 
 ```json
 {
@@ -132,27 +123,18 @@ MIT
 
 ### 1. 将包加入 profile
 
-**方式 A — GitHub Release（推荐给普通用户）：**
+**方式 A — npm（推荐）：**
+
+```bash
+cd $DSH_HOME/profiles/web
+npm install dsh-skills-manage        # 或: pnpm add dsh-skills-manage
+```
+
+**方式 B — GitHub Release：**
 
 1. 从 [Releases 页面](https://github.com/zhouran-hhh/dsh-skills-manage/releases) 下载最新源码 zip/tarball（或 `git clone` / `git checkout v0.2.0`）。
 2. 解压后放到 `$DSH_HOME/profiles/web/vendor/dsh-skills-manage/`。
 3. 在 `$DSH_HOME/profiles/web/package.json` 中加入：
-
-```json
-{
-  "dependencies": {
-    "dsh-skills-manage": "file:./vendor/dsh-skills-manage"
-  }
-}
-```
-
-**方式 B — npm / 直接安装：**
-
-```bash
-npm install /path/to/dsh-skills-manage   # 或: pnpm add dsh-skills-manage
-```
-
-或直接引用本地 vendor 副本（`package.json`）：
 
 ```json
 {
