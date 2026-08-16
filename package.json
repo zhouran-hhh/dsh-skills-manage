@@ -1,7 +1,7 @@
 {
   "name": "dsh-skill-manager",
-  "description": "Settings page that visually browses, searches, filters and reads the full content of every available skill.",
-  "version": "0.1.0",
+  "description": "Settings page that visually browses, searches, filters, creates, edits and deletes skills.",
+  "version": "0.2.0",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -35,6 +35,8 @@
     "url": "git+https://github.com/zhouran-hhh/dsh-skills-manage.git"
   },
   "dependencies": {
-    "react": "^18.2.0"
+    "@deepseek-ai/dsh-home-paths": "^0.1.0-rc.6",
+    "react": "^18.2.0",
+    "yaml": "^2.4.0"
   }
 }

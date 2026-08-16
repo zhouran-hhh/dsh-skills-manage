@@ -1,15 +1,18 @@
 # dsh-skills-manage
 
+> **简体中文**：[README.zh-CN.md](README.zh-CN.md)
+
 A DeepSeek Harness (DSH) plugin that adds a visual **Skills Manager** page to the Web GUI:
 
-- **Browse** every skill visible to the current session
-- **Search & filter** by name/description, model-invocable, user-invocable
-- **Read** the full markdown body, when-to-use guidance, provider, source and file path
-- **Copy** any skill's content with one click
-- **Refresh** the catalog on demand
+- **Create** new skills (written to the `~/.dsh/skills` user skill root)
+- **Delete** user skills (built-in/preset skills are read-only — copy first)
+- **Update** a skill's name, description, when-to-use and body
+- **Browse** every skill visible to the current session; search by name/description; filter by
+  model-invocable / user-invocable; read the full markdown body, provider, source and file path;
+  copy any skill's content with one click
 
-It installs as a persistent repository plugin: after adding the plugin row to your profile's
-`cordis.patch.yml`, the feature survives restarts — no dynamic-plugin re-creation needed.
+Installed as a persistent repository plugin, the feature survives restarts once the plugin row is
+registered in your profile's `cordis.patch.yml` — no dynamic-plugin re-creation needed.
 
 ## Features
 
@@ -17,7 +20,9 @@ It installs as a persistent repository plugin: after adding the plugin row to yo
 | --- | --- |
 | Settings page entry | `settings.section` slot, id `skill-manager` |
 | Skill catalog JSON API | `GET /api/skill-manager/list`, `GET /api/skill-manager/get` |
+| Skill write JSON API | `POST /api/skill-manager/create`, `/update`, `/delete` |
 | Session scoping | Host resolves the current session's agent scope for accurate skill visibility |
+| Write safety boundary | Only `<DSH_HOME>/skills` (`user-dsh` layer) is writable; names must be kebab-case; update/delete paths are validated |
 | Theme | Uses DSH theme CSS variables (light/dark aware) |
 
 ## Install
@@ -56,11 +61,17 @@ The composition is read at startup. After restarting, open **Settings → 技能
 
 ## How it works
 
-- **Host half** (`lib/index.js`): consumes the `skills` service, exposes two JSON routes on
-  the web server, and resolves the viewing scope from the current session via the `agents`
-  service.
+- **Host half** (`lib/index.js`): consumes the `skills` service, exposes five JSON routes on the
+  web server, resolves the viewing scope from the current session via the `agents` service, and
+  performs write operations directly on `<DSH_HOME>/skills` (the `user-dsh` layer); the filesystem
+  provider watches for changes and refreshes the catalog automatically — no restart needed.
 - **Browser half** (`lib/client.js`): a `window.__ModuleLoader__` bundle that registers the
   `settings.section` entry and renders the management UI with React.
+
+## Write permissions
+
+- **Writable**: skills with source `user-dsh` (under `~/.dsh/skills/`)
+- **Read-only**: `bundled`, `project-dsh`/`project-agents`, `custom`, `runtime` and other sources
 
 ## License
 
