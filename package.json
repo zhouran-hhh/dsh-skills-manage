@@ -1,5 +1,5 @@
 {
-  "name": "dsh-skill-manager",
+  "name": "dsh-skills-manage",
   "description": "Settings page that visually browses, searches, filters, creates, edits and deletes skills.",
   "version": "0.2.0",
   "type": "module",

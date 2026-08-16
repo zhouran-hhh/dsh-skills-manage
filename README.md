@@ -37,13 +37,13 @@ registered in your profile's `cordis.patch.yml` — no dynamic-plugin re-creatio
 
 1. Download the latest source zip/tarball from the
    [Releases page](https://github.com/zhouran-hhh/dsh-skills-manage/releases) (or `git clone` / `git checkout v0.2.0`).
-2. Unzip it and place the folder as `$DSH_HOME/profiles/web/vendor/dsh-skill-manager/`.
+2. Unzip it and place the folder as `$DSH_HOME/profiles/web/vendor/dsh-skills-manage/`.
 3. In `$DSH_HOME/profiles/web/package.json` add:
 
 ```json
 {
   "dependencies": {
-    "dsh-skill-manager": "file:./vendor/dsh-skill-manager"
+    "dsh-skills-manage": "file:./vendor/dsh-skills-manage"
   }
 }
 ```
@@ -51,7 +51,7 @@ registered in your profile's `cordis.patch.yml` — no dynamic-plugin re-creatio
 **Option B — npm / direct install:**
 
 ```bash
-npm install /path/to/dsh-skills-manage   # or: pnpm add dsh-skill-manager
+npm install /path/to/dsh-skills-manage   # or: pnpm add dsh-skills-manage
 ```
 
 or reference the local vendor copy in `package.json`:
@@ -59,7 +59,7 @@ or reference the local vendor copy in `package.json`:
 ```json
 {
   "dependencies": {
-    "dsh-skill-manager": "file:./vendor/dsh-skill-manager"
+    "dsh-skills-manage": "file:./vendor/dsh-skills-manage"
   }
 }
 ```
@@ -71,7 +71,7 @@ In `$DSH_HOME/profiles/web/cordis.patch.yml`:
 ```yaml
 - insert:
     - id: skill-manager
-      name: 'dsh-skill-manager'
+      name: 'dsh-skills-manage'
 ```
 
 ### 3. Restart DSH
@@ -135,13 +135,13 @@ MIT
 **方式 A — GitHub Release（推荐给普通用户）：**
 
 1. 从 [Releases 页面](https://github.com/zhouran-hhh/dsh-skills-manage/releases) 下载最新源码 zip/tarball（或 `git clone` / `git checkout v0.2.0`）。
-2. 解压后放到 `$DSH_HOME/profiles/web/vendor/dsh-skill-manager/`。
+2. 解压后放到 `$DSH_HOME/profiles/web/vendor/dsh-skills-manage/`。
 3. 在 `$DSH_HOME/profiles/web/package.json` 中加入：
 
 ```json
 {
   "dependencies": {
-    "dsh-skill-manager": "file:./vendor/dsh-skill-manager"
+    "dsh-skills-manage": "file:./vendor/dsh-skills-manage"
   }
 }
 ```
@@ -149,7 +149,7 @@ MIT
 **方式 B — npm / 直接安装：**
 
 ```bash
-npm install /path/to/dsh-skills-manage   # 或: pnpm add dsh-skill-manager
+npm install /path/to/dsh-skills-manage   # 或: pnpm add dsh-skills-manage
 ```
 
 或直接引用本地 vendor 副本（`package.json`）：
@@ -157,7 +157,7 @@ npm install /path/to/dsh-skills-manage   # 或: pnpm add dsh-skill-manager
 ```json
 {
   "dependencies": {
-    "dsh-skill-manager": "file:./vendor/dsh-skill-manager"
+    "dsh-skills-manage": "file:./vendor/dsh-skills-manage"
   }
 }
 ```
@@ -169,7 +169,7 @@ npm install /path/to/dsh-skills-manage   # 或: pnpm add dsh-skill-manager
 ```yaml
 - insert:
     - id: skill-manager
-      name: 'dsh-skill-manager'
+      name: 'dsh-skills-manage'
 ```
 
 ### 3. 重启 DSH
